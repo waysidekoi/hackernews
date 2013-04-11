@@ -4,18 +4,43 @@
 All posts by <a href="users/<%= @user.id %>"><%= @user.name %></a>
 <% end %>
 
-
-<% @posts.each do |post| %>
+<% @posts.each_with_index do |post, index| %>
 
   <ul id="posts">
-      <li><b><a href="<%= post.url %>"><%= post.title %></a></b></li>
-      <li>by <a href="users/<%= post.user.id %>"><%= post.user.name %></a></li>
-      <li><abbr class="timeago" title="<%= post.created_at %>">x</abbr></li>
+       
+      <li><%= index + 1 %>. 
+        <% if signed_in? %>
+        <% unless vote_exists(post) %>
+            <a href="/posts/<%= post.id %>/upvote"><img src="up.png" width="15"></a>
+          <% else %> 
+            <a href="/posts/<%= post.id %>/unvote"><img src="down.png" width="15"></a>
+          <% end %>
+        <% end %>
+        <a href="<%= post.url %>"><%= post.title %></a>
+      </li>
+
+      <li><%= post.post_votes.count %> points | 
+      </li>  
+
+      <li>by <a href="users/<%= post.user.id %>"><%= post.user.name %></a>
+      </li>
+
+      <li><abbr class="timeago" title="<%= post.created_at %>">x</abbr>
+      </li>
+
       <li><a href="/posts/<%= post.id %>">
-        <% if post.comments.length < 1 %>discuss<% else %><%= post.comments.length %> comments</a><% end %></li>
+        <% if post.comments.length < 1 %>
+          discuss
+        <% else %>
+          <%= post.comments.length %> comments
+        <% end %>
+        </a>
+      </li>
+     
   </ul>
 
 <% end %>
+
 
 </div>
 

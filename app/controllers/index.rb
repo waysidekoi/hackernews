@@ -1,6 +1,7 @@
 get '/' do
 
-  @posts = Post.all
+  @posts = Post.all.sort_by &:post_votes
+  @posts = @posts.reverse
   @comments = Comment.all
   @users = User.all
 
@@ -81,6 +82,9 @@ helpers do
     redirect '/'
   end
 
+  def vote_exists(post)
+    PostVote.find_by_user_id_and_post_id(session[:user_id], post.id)
+  end
 end
 
 

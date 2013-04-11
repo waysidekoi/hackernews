@@ -4,12 +4,26 @@
   margin: 20px;
 }
 
+#posts_ordered li {
+  padding: 10px;
+}
+
 #posts li:nth-child(1) {
   display: block;
 }
 
+#posts li:nth-child(2) {
+  padding-left: 30px;
+}
+
 #posts li {
   display: inline;
+  padding: 0px;
+}
+
+#posts ul li {
+  margin: 0px;
+  font-size: 14px;
 }
 
 #comments ul {
@@ -54,10 +68,7 @@
   padding-left: 10px;
 }
 
-#posts ul li {
-  margin: 0px;
-  font-size: 14px;
-}
+
 
 .timeago {
   border: 0px;

@@ -19,4 +19,15 @@ namespace '/posts' do
     redirect '/'
   end
 
+  get '/:id/upvote/?' do
+    PostVote.create(post_id: params[:id], user_id: session[:user_id])
+    redirect '/'
+  end
+
+  get '/:id/unvote/?' do
+    PostVote.delete_all(post_id: params[:id], user_id: session[:user_id])
+    redirect '/'  
+  end
 end
+
+
