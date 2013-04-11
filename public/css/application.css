@@ -1,9 +1,65 @@
 .container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  padding: 20px;
+  border: 1px dotted;
+  margin: 20px;
 }
-th {
-  text-align: left;
+
+#posts li:nth-child(1) {
+  display: block;
+}
+
+#posts li {
+  display: inline;
+}
+
+#comments ul {
+  margin-left: -140px;
+}
+
+ {
+  border: 1px dotted;
+}
+
+#comments li:nth-child(3) {
+  display: block;
+  font-size: 14px;
+  color: black;
+}
+
+#comments li {
+  display: inline;
+  font-size: 12px;
+  color: gray;
+}
+
+.post {
+  padding: 20px;
+}
+
+.user {
+  padding: 20px;
+}
+
+.user_data td {
+  padding: 10px;
+}
+
+.header {
+  background-color: #ccc;
+  padding: 5px;
+}
+
+#menu li {
+  display: inline;
+  padding-left: 10px;
+}
+
+#posts ul li {
+  margin: 0px;
+  font-size: 14px;
+}
+
+.timeago {
+  border: 0px;
+  text-decoration: none;
 }

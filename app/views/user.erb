@@ -1,0 +1,33 @@
+<div class="user">
+
+<table class="user_data">
+  <tr>
+    <td>user:</td>
+    <td><%= @user.name %></td>
+  </tr>    
+  <tr>
+    <td>created:</td>
+    <td><%= @user.created_at %></td>
+  </tr>  
+    <tr>
+    <td>karma:</td>
+    <td><%= @user.comments.length %></td>
+  </tr>  
+    <tr>
+    <td>avg:</td>
+    <td>
+    </td>
+  </tr>  
+    <tr>
+    <td>about:
+    </td>
+    <td>
+    </td>
+  </tr>  
+  <tr>
+    <td></td>
+    <td><p><a href="/submissions/<%= @user.id %>">submissions</a><p>
+        <p><a href="/comments/<%= @user.id %>">comments</a></p>
+      </td>
+
+</div>

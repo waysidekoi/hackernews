@@ -1,0 +1,14 @@
+<div class="header">
+  <ul id='menu'>
+    <li><a href="/">Posts</a></li>
+    <li>Comments</li>
+    <li><a href="/posts/new">Submit</a></li>
+
+    <% if signed_in? %>
+    <li><a href="/users/<%= @current_user.id %>"><%= @current_user.name %></a></li>
+    <li><a href="/logout">logout</a></li>
+    <% else %>
+    <li><a href="/login">login/signup</a></li>
+    <% end %>
+  </ul>  
+</div>  

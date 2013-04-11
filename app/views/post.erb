@@ -1,0 +1,28 @@
+<div class="post">
+
+
+
+<ul id="posts">
+  <li><b><a href="<%= @post.url %>"><%= @post.title %></a></b></li>
+  <li>by <a href="users/<%= @post.user.id %>"><%= @post.user.name %></a></li>
+  <li><abbr class="timeago" title="<%= @post.created_at %>">x</abbr></li>
+  <li><a href="/posts/<%= @post.id %>">
+  <% if @post.comments.length < 1 %>discuss<% else %><%= @post.comments.length %> comments</a><% end %></li>
+</ul>
+
+<form action="/comments/created" method="POST">
+  <input type="hidden" name="post_id" value="<%= @post.id %>">
+  <textarea name="text" rows= 5 cols=50></textarea><br>
+  <input type="submit" value="add comment">
+</form>
+
+<% @post.comments.reverse.each do |comment| %>
+<ul id="comments">
+  <li><%= comment.user.name %></li>
+  <li><abbr class="timeago" title="<%= comment.created_at %>">x</abbr></li>
+  <li><%= comment.text %></li>
+</ul>  
+<% end %>
+
+</div>
+
